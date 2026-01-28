@@ -1,0 +1,105 @@
+:root {
+--bg: linear-gradient(135deg,#667eea,#764ba2);
+--card: rgba(255,255,255,0.15);
+--text: #fff;
+--shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+body {
+margin:0;
+font-family:Poppins,sans-serif;
+background:var(--bg);
+color:var(--text);
+display:flex;
+justify-content:center;
+}
+
+.section {
+display:none;
+width:100%;
+max-width:420px;
+padding:15px;
+}
+
+.section.active { display:block; }
+
+.glass-card {
+background:var(--card);
+backdrop-filter:blur(10px);
+border-radius:16px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:var(--shadow);
+}
+
+.center { text-align:center; }
+
+.header {
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:5px;
+}
+
+.cards {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
+}
+
+button {
+border:none;
+border-radius:25px;
+padding:10px 15px;
+font-weight:600;
+cursor:pointer;
+}
+
+.btn-primary { background:#ff7675;color:white; }
+.btn-secondary { background:#74b9ff;color:white; }
+.btn-logout { background:#d63031;color:white; }
+
+input, select {
+width:100%;
+padding:10px;
+border-radius:10px;
+border:none;
+margin-bottom:10px;
+}
+
+.progress-bar {
+height:12px;
+background:rgba(255,255,255,0.3);
+border-radius:10px;
+overflow:hidden;
+}
+
+#student-progress-fill {
+height:100%;
+background:#00cec9;
+width:0%;
+}
+
+.expense-card {
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+.category-label {
+padding:4px 8px;
+border-radius:12px;
+font-size:12px;
+}
+
+.Worthy { background:#00b894; }
+.Worthless { background:#d63031; }
+
+.theme-btn {
+position:fixed;
+top:15px;
+right:15px;
+border-radius:50%;
+width:45px;
+height:45px;
+}

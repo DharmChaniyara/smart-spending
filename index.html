@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Expense Tracker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<button id="theme-toggle" class="theme-btn">
+    <i class="fas fa-moon"></i>
+</button>
+
+<!-- LOGIN -->
+<div id="login" class="section active">
+    <div class="glass-card center">
+        <h1><i class="fas fa-wallet"></i> Smart Expense Tracker</h1>
+        <p>Track your money, stress-free 📊</p>
+
+        <button class="btn-primary" onclick="loginAs('student')">Student Login</button>
+        <button class="btn-primary" onclick="loginAs('parent')">Parent Login</button>
+
+        <p class="note">Prototype version – No real authentication</p>
+    </div>
+</div>
+
+<!-- STUDENT DASHBOARD -->
+<div id="student-dashboard" class="section">
+    <header class="glass-card header">
+        <h2>Student Dashboard</h2>
+        <button onclick="showSection('add-expense')" class="btn-secondary">Add</button>
+        <button onclick="showSection('student-history')" class="btn-secondary">History</button>
+        <button onclick="logout()" class="btn-logout">Logout</button>
+    </header>
+
+    <div class="cards">
+        <div class="glass-card"><h3>Allowance</h3><p>₹<span id="student-allowance">0</span></p></div>
+        <div class="glass-card"><h3>Spent</h3><p>₹<span id="student-spent">0</span></p></div>
+        <div class="glass-card"><h3>Remaining</h3><p>₹<span id="student-remaining">0</span></p></div>
+    </div>
+
+    <div class="progress-bar">
+        <div id="student-progress-fill"></div>
+    </div>
+
+    <p id="student-message"></p>
+</div>
+
+<!-- ADD EXPENSE -->
+<div id="add-expense" class="section">
+    <header class="glass-card header">
+        <h2>Add Expense</h2>
+        <button onclick="showSection('student-dashboard')" class="btn-secondary">Back</button>
+    </header>
+
+    <form id="expense-form" class="glass-card">
+        <input type="text" id="expense-name" placeholder="Expense name" required>
+        <input type="number" id="expense-amount" placeholder="Amount (₹)" required>
+        <select id="expense-category" required>
+            <option value="">Category</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Study</option>
+            <option>Entertainment</option>
+            <option>Others</option>
+        </select>
+        <button class="btn-primary">Add Expense</button>
+        <p id="add-message"></p>
+    </form>
+</div>
+
+<!-- HISTORY -->
+<div id="student-history" class="section">
+    <header class="glass-card header">
+        <h2>Expense History</h2>
+        <button onclick="showSection('student-dashboard')" class="btn-secondary">Back</button>
+    </header>
+    <div id="student-expenses-container"></div>
+</div>
+
+<!-- PARENT DASHBOARD -->
+<div id="parent-dashboard" class="section">
+    <header class="glass-card header">
+        <h2>Parent Dashboard</h2>
+        <button onclick="showSection('set-allowance')" class="btn-secondary">Set Allowance</button>
+        <button onclick="logout()" class="btn-logout">Logout</button>
+    </header>
+
+    <div class="cards">
+        <div class="glass-card"><h3>Allowance</h3><p>₹<span id="parent-allowance">0</span></p></div>
+        <div class="glass-card"><h3>Spent</h3><p>₹<span id="parent-spent">0</span></p></div>
+        <div class="glass-card"><h3>Remaining</h3><p>₹<span id="parent-remaining">0</span></p></div>
+    </div>
+
+    <p id="parent-insight"></p>
+</div>
+
+<!-- SET ALLOWANCE -->
+<div id="set-allowance" class="section">
+    <header class="glass-card header">
+        <h2>Set Allowance</h2>
+        <button onclick="showSection('parent-dashboard')" class="btn-secondary">Back</button>
+    </header>
+
+    <form id="allowance-form" class="glass-card">
+        <input type="number" id="allowance-amount" placeholder="Monthly Allowance ₹" required>
+        <input type="password" id="pin" placeholder="PIN (1234)" required>
+        <button class="btn-primary">Save</button>
+        <p id="allowance-message"></p>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
